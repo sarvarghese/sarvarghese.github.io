@@ -1,85 +1,78 @@
+import styled from "@emotion/styled";
 import { Grid } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
 
 function Card(props: any) {
+    const CardStyles = styled((props: any) => (
+        <Grid item xs={7} {...props}>
+            {props.children}
+        </Grid>
+    ))`
+        margin: 50px;
+        max-width: 700px;
+        border-radius: 5px;
+        min-height: 400px;
+        text-align: left;
+        background-size: contain;
+        border: 5px solid white;
+        filter: drop-shadow(5px 5px 5px #222);
+        background-image: linear-gradient(rgba(15, 15, 15, 0.5), rgba(15, 15, 15, 0.5)), url(${props.image});
+    `;
+
     return (
-        <Grid
-            item
-            xs={7}
-            style={{
-                margin: 50,
-                height: 400,
-                maxWidth: 700,
-                borderRadius: 5,
-                textAlign: "left",
-                backgroundSize: 250,
-                border: "5px solid white",
-                backgroundRepeat: "repeat",
-                filter: "drop-shadow(5px 5px 5px #222)",
-                backgroundImage: `linear-gradient(rgba(15,15,15, 0.5), rgba(15,15,15, 0.5)), url(${props.image})`,
-            }}
-        >
-            <Grid container style={{ padding: 30 }}>
-                <Grid item xs={12}>
-                    <Grid container style={{ justifyContent: "space-between", alignItems: "baseline" }}>
-                        <NavLink to="/about" style={{ textDecoration: "none" }}>
-                            <h2 style={{ margin: 0, color: "white", textShadow: "blue 3px 2px 3px", fontWeight: "bolder" }}>{props.title}</h2>
-                        </NavLink>
-                        <h3 style={{ margin: 0, fontStyle: "italic", color: "white", textShadow: "blue 3px 2px 3px" }}>{props.date}</h3>
-                    </Grid>
-                    <div
-                        style={{
-                            height: 5,
-                            width: "100%",
-                            borderRadius: 25,
-                            margin: "10px 0px",
-                            backgroundColor: "#CDEBF3",
-                            boxShadow: "0px 3px 10px 3px blue",
-                        }}
-                    />
+        <Grid container style={{ justifyContent: "center" }}>
+            <CardStyles>
+                <Grid container style={{ justifyContent: "space-between" }}>
+                    {props.stickers.map((item:any, index: number) => {return  <Grid item>
+                        <img
+                            alt=""
+                            src={item}
+                            style={{ 
+                                height: 100, 
+                                zIndex: 1, 
+                                position: "absolute", 
+                                transform: index === 2 && props.title !== 'Career Insights' ? "rotate(30deg)" : "rotate(-15deg)",
+                                margin: index === 2 && props.title !== 'Career Insights' ? "-30px 0px 0px -150px" : "-50px 0px 0px -50px",
+                            }}
+                        />
+                    </Grid>})}
                 </Grid>
-
-                <Grid container>
-                    <Grid item xs={12}>
-                        <Grid container style={{ justifyContent: "center" }}>
-                            <Grid item xs={12} style={{ textAlign: "center" }}>
-                                <h2 style={{ color: "white", margin: "0px 10px 0px", textDecoration: "underline" }}>Project Brief:</h2>
-                            </Grid>
-                            <Grid item xs={12}>
-                                <h3 style={{ textAlign: "center", color: "white", margin: "0px 10px 0px" }}>{props.brief}</h3>
-                            </Grid>
+                <NavLink to={`/${props.title.replace(/\s+/g, "-").toLowerCase()}`} style={{ textDecoration: "none" }}>
+                    <Grid container style={{ padding: 30, justifyContent: "center", alignContent: 'center', minHeight: 400 }}>
+                        <Grid item xs={12}>
+                            <h1 style={{ textAlign: "center", margin: 0, color: "white", textShadow: "blue 3px 2px 3px", fontWeight: "bolder" }}>
+                                {props.title}
+                            </h1>
+                            <h3
+                                style={{
+                                    color: "white",
+                                    textAlign: "center",
+                                    fontStyle: "italic",
+                                    margin: "10px 0px 0px 0px",
+                                    textShadow: "blue 3px 2px 3px",
+                                }}
+                            >
+                                {props.date}
+                            </h3>
+                        </Grid>
+                        <div
+                            style={{
+                                height: 5,
+                                width: "100%",
+                                borderRadius: 25,
+                                margin: "30px 0px",
+                                backgroundColor: "#CDEBF3",
+                                boxShadow: "0px 3px 10px 3px blue",
+                            }}
+                        />
+                        <Grid item xs={10} style={{ paddingTop: 20 }}>
+                            <h3 style={{ textAlign: "center", textShadow: "black 1px 2px 2px", color: "white", margin: "0px 10px 0px" }}>
+                                {props.brief}
+                            </h3>
                         </Grid>
                     </Grid>
-
-                    <Grid item xs={12} style={{ paddingTop: 10 }}>
-                        <Grid container style={{ justifyContent: "center" }}>
-                            <Grid item xs={12} style={{ textAlign: "center" }}>
-                                <h2 style={{ color: "white", margin: "0px 10px 0px", textDecoration: "underline" }}>Role:</h2>
-                            </Grid>
-                            <Grid item xs={12} style={{ justifyContent: "center", display: "inline-flex" }}>
-                                {props.role.map((item: string) => {
-                                    return <h2 style={{ color: "white", margin: "0px 10px 0px" }}>{item}</h2>;
-                                })}
-                            </Grid>
-                        </Grid>
-                    </Grid>
-
-                    <Grid item xs={12} style={{ paddingTop: 10 }}>
-                        <Grid container style={{ justifyContent: "center" }}>
-                            <Grid item xs={12} style={{ textAlign: "center" }}>
-                                <h2 style={{ color: "white", margin: "0px 10px 0px", textDecoration: "underline" }}>Tech Used:</h2>
-                            </Grid>
-                            <Grid item xs={12} style={{ display: "inline-flex" }}>
-                                <Grid container style={{ justifyContent: "center" }}>
-                                    {props.tech.map((item: string) => {
-                                        return <h2 style={{ color: "white", margin: "0px 10px 0px" }}>{item}</h2>;
-                                    })}
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                </Grid>
-            </Grid>
+                </NavLink>
+            </CardStyles>
         </Grid>
     );
 }

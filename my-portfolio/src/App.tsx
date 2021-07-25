@@ -1,4 +1,5 @@
 import React from "react";
+import Work from "./pages/work";
 import Home from "./pages/home";
 import About from "./pages/about";
 import Title from "./images/title.png";
@@ -11,14 +12,16 @@ function App() {
         <BrowserRouter>
             <Grid
                 style={{
+                    width: "100%",
+                    height: "100%",
+                    minWidth: "100vw",
+                    minHeight: "100vh",
                     textAlign: "center",
                     backgroundColor: "#E3E4FF",
                     backgroundRepeat: "repeat",
                     backgroundSize: "200px 200px",
                     backgroundBlendMode: "difference",
                     backgroundImage: `url(${Sparkles})`,
-                    width: "100%",
-                    height: "100%",
                 }}
             >
                 <Grid
@@ -45,13 +48,10 @@ function App() {
                     </Grid>
                 </Grid>
 
-                <Grid item xs={12}>
-                    <h1 style={{ fontSize: 25, fontStyle: "italic", color: "#D5FFFD", textShadow: "2px 2px gray" }}> developer and designer </h1>
-                </Grid>
-
                 <Switch>
-                    <Route exact path="/about" component={About} />
                     <Route exact path="/" component={Home} />
+                    <Route exact path="/:work" component={Work} />
+                    <Route exact path="/about" component={About} />
                 </Switch>
             </Grid>
         </BrowserRouter>
