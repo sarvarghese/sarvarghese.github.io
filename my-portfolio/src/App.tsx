@@ -24,16 +24,18 @@ function App() {
                     backgroundImage: `url(${Sparkles})`,
                 }}
             >
-                <Grid
-                    item
-                    xs={12}
-                    style={{
-                        height: 100,
-                        background: "linear-gradient(180deg, rgba(161,228,250,1) 0%, rgba(161,228,250,1) 20%, rgba(0,212,255,0) 80%)",
-                    }}
-                >
-                    <img src={Title} alt="SARAH" style={{ height: 100 }} />
-                </Grid>
+                <NavLink to="/">
+                    <Grid
+                        item
+                        xs={12}
+                        style={{
+                            height: 100,
+                            background: "linear-gradient(180deg, rgba(161,228,250,1) 0%, rgba(161,228,250,1) 20%, rgba(0,212,255,0) 80%)",
+                        }}
+                    >
+                        <img src={Title} alt="SARAH" style={{ height: 100 }} />
+                    </Grid>
+                </NavLink>
 
                 <Grid container style={{ justifyContent: "center" }}>
                     <Grid item xs={2}>
@@ -50,8 +52,8 @@ function App() {
 
                 <Switch>
                     <Route exact path="/" component={Home} />
-                    <Route exact path="/:work" component={Work} />
                     <Route exact path="/about" component={About} />
+                    <Route exact path="/:work" component={Work} />
                 </Switch>
             </Grid>
         </BrowserRouter>

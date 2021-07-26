@@ -6,8 +6,6 @@ import sudBG from "../../images/sudBG.png";
 import Flower from "../../images/flower.png";
 import MiniPAM from "../../images/miniPAM.png";
 import BlueStar from "../../images/bluestar.png";
-import Flowerbg from "../../images/flowerbg.png";
-import GreenStar from "../../images/greenstar.png";
 import PurpleStar from "../../images/purplestar.png";
 
 function Home() {

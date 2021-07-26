@@ -10,32 +10,41 @@ function Card(props: any) {
     ))`
         margin: 50px;
         max-width: 700px;
+        text-align: left;
         border-radius: 5px;
         min-height: 400px;
-        text-align: left;
-        background-size: contain;
         border: 5px solid white;
+        background-size: contain;
+        transition: all .1s ease-in;
         filter: drop-shadow(5px 5px 5px #222);
         background-image: linear-gradient(rgba(15, 15, 15, 0.5), rgba(15, 15, 15, 0.5)), url(${props.image});
+
+        &:hover {
+            transition: all .1s ease-out;
+            border: 5px solid cornflowerblue;
+            background-image: linear-gradient(rgba(15, 15, 15, 0.7), rgba(15, 15, 15, 0.7)), url(${props.image});
+        }
     `;
 
     return (
         <Grid container style={{ justifyContent: "center" }}>
             <CardStyles>
                 <Grid container style={{ justifyContent: "space-between" }}>
-                    {props.stickers.map((item:any, index: number) => {return  <Grid item>
-                        <img
-                            alt=""
-                            src={item}
-                            style={{ 
-                                height: 100, 
-                                zIndex: 1, 
-                                position: "absolute", 
-                                transform: index === 2 && props.title !== 'Career Insights' ? "rotate(30deg)" : "rotate(-15deg)",
-                                margin: index === 2 && props.title !== 'Career Insights' ? "-30px 0px 0px -150px" : "-50px 0px 0px -50px",
-                            }}
-                        />
-                    </Grid>})}
+                    {props.stickers.map((item: any, index: number) => {
+                        return <Grid item>
+                            <img
+                                alt=""
+                                src={item}
+                                style={{
+                                    height: 100,
+                                    zIndex: 1,
+                                    position: "absolute",
+                                    transform: index === 2 && props.title !== 'Career Insights' ? "rotate(30deg)" : "rotate(-15deg)",
+                                    margin: index === 2 && props.title !== 'Career Insights' ? "-30px 0px 0px -150px" : "-50px 0px 0px -50px",
+                                }}
+                            />
+                        </Grid>
+                    })}
                 </Grid>
                 <NavLink to={`/${props.title.replace(/\s+/g, "-").toLowerCase()}`} style={{ textDecoration: "none" }}>
                     <Grid container style={{ padding: 30, justifyContent: "center", alignContent: 'center', minHeight: 400 }}>
@@ -55,7 +64,7 @@ function Card(props: any) {
                                 {props.date}
                             </h3>
                         </Grid>
-                        <div
+                        <Grid
                             style={{
                                 height: 5,
                                 width: "100%",
