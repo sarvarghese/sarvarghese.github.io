@@ -29,7 +29,7 @@ function Home() {
                 image={MiniPAM}
                 stickers={[ '',  Smile, '']}
                 title={"Product to Application Map and Match"}
-                date={"2019 - present"}
+                date={"2019 - 2021"}
                 brief={"Dashboard used for cost savings analysis, & product retirement with recommendations given by big data analysis"}
                 role={["Frontend Developer", "UI Designer"]}
                 tech={["React", "Typescript", "Material UI", "Figma", "Sketch", "GraphQL", "Node"]}

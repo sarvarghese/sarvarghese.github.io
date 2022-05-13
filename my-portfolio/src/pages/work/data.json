@@ -1,0 +1,54 @@
+{
+    "SUD": {
+        "title": "Server Utilization Dashboard",
+        "dates": "January 2019 - Present",
+        "tech": [
+            "React",
+            "Typescript",
+            "Material UI",
+            "GraphQL",
+            "Node",
+            "Figma",
+            "Sketch",
+            "Adobe XD"
+        ],
+        "info": [
+            "This project’s goal is to give insight into the servers on premise. It grouped the servers by organization, data center, and environment, allowing the user to see both high level summary information and drill down to the server detail view.",
+            "I started on the project as a frontend developer and developed over 30+ screens and 20+ components, several of which were optimized for reuse in the dashboard.",
+            "I took over for a previous designer who had designed the screens in both Adobe XD and Sketch, which I then converted to Figma to make it easier for the team to access and colloborate on."
+        ]
+    },
+    "PTAMAM": {
+        "title": "Product To Application Map And Match",
+        "dates": "October 2019 - Present",
+        "tech": [
+            "React",
+            "Typescript",
+            "Material UI",
+            "GraphQL",
+            "Node",
+            "Figma",
+            "Sketch"
+        ],
+        "info": [
+            "The goal of the project is to show the relationship between products and applications to allow for products to be retired along with their dependent applications.",
+            "This project began as a proof of concept and I was brought on as both the UI Designer and Frontend developer. The team was able to leverage the existing design system and create a dashboard that fit the users needs while being able to reuse previously developed components",
+            "The inital set of wireframes were designed in Sketch and later converted to Figma. Over time, the dashboard expanded to include CRUD capabilities, which saved the users a significant amount of time."
+        ]
+    },
+    "CI": {
+        "title": "Career Insights",
+        "dates": "October 2019 - Present",
+        "tech": [
+            "React",
+            "Typescript",
+            "Material UI",
+            "MySQL",
+            "REST",
+            "Sketch"
+        ],
+        "info": [
+            "I had been helping with this event for a year prior to the team’s request for a website. I volunteered to design and develop the website and was able to create 10+ screens, develop the site, and maintain it post-deployment."
+        ]
+    }
+}

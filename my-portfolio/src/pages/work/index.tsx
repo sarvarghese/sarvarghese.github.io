@@ -1,9 +1,14 @@
 import styled from "@emotion/styled";
 import { Grid } from "@material-ui/core";
-import SUD from '../../images/miniSUD.png'
+// import SUD from '../../images/miniSUD.png'
+import Data from './data.json';
 
 function Work() {
-    let tech = ['React', 'Typescript', 'Material UI', 'GraphQL', 'Node', 'Figma', 'Sketch', 'Adobe XD']
+    let data = Data as any;
+    let title = window.location.pathname.split('/')[1].toString().replace(/-/g, ' ');
+    title = title.toLowerCase().replace(/\b(\w)/g, s => s.toUpperCase());
+    let acron: any = title.split(/\s/).reduce((response, word) => response += word.slice(0, 1), '')
+
     const CardStyles = styled((props: any) => (
         <Grid item xs={7} {...props}>
             {props.children}
@@ -25,8 +30,8 @@ function Work() {
             <CardStyles>
                 <Grid container style={{ justifyContent: 'center' }}>
                     <Grid>
-                        <h1 style={{ marginBottom: 0, textAlign: 'center' }}>Server Utilization Dashboard</h1>
-                        <h4 style={{ marginTop: 5, textAlign: 'center' }}>January 2019 - Present</h4>
+                        <h1 style={{ marginBottom: 0, textAlign: 'center', textTransform: 'capitalize' }}>{data[acron].title}</h1>
+                        <h4 style={{ marginTop: 5, textAlign: 'center' }}>{data[acron].dates}</h4>
                     </Grid>
                     <Grid
                         style={{
@@ -42,27 +47,19 @@ function Work() {
                         <h4 style={{ margin: 0 }}>UI Designer </h4>
                     </Grid>
                     <Grid item xs={7} style={{ marginTop: 10, textAlign: 'center' }}>
-                        <h3 style={{ textDecoration: 'underline', margin: '10px 0px 5px' }}>Tech Stack:</h3>
+                        <h3 style={{ textDecoration: 'underline', margin: '10px 0px 5px' }}>Tech Used:</h3>
                         <Grid container style={{ justifyContent: 'center' }}>
-                            {tech.map((item: string) => { return <h4 style={{ margin: '0px 10px' }}>{item} </h4> })}
+                            {data[acron].tech.map((item: string) => { return <h4 style={{ margin: '0px 10px' }}>{item} </h4> })}
                         </Grid>
                     </Grid>
 
-                    <Grid container style={{ justifyContent: 'center', padding: 30 }}>
+                    <Grid container style={{ justifyContent: 'center', padding: '0px 30px 30px' }}>
                         <Grid item xs={10} style={{ marginTop: 20, textAlign: 'center' }}>
-                            <p style={{ margin: '10px 0px 5px' }}>
-                                This project’s goal is to give insight into the servers on premise. It grouped the servers by organization, data center, and environment, allowing the user to see both high level summary information and drill down to the server detail view.
-                            </p>
-                            <p style={{ margin: '10px 0px 5px' }}>
-                                I started on the project as a frontend developer and code over 30+ screens and 20+ components, several of which were optimized for reuse in the dashboard.
-                            </p>
-                            <p style={{ margin: '10px 0px 5px' }}>
-                                I took over for a previous designer who had designed the screens in both Adobe XD and Sketch, which I then converted to Figma to make it easier for the team to access and colloborate on.
-                            </p>
+                            {data[acron].info.map((item: string) => { return <p style={{ margin: '10px 0px 5px' }}>{item}</p> })}
                         </Grid>
-                        <Grid item style={{ marginTop: 20, textAlign: 'center' }}>
+                        {/* <Grid item style={{ marginTop: 20, textAlign: 'center' }}>
                             <img src={SUD} alt='' />
-                        </Grid>
+                        </Grid> */}
                     </Grid>
 
                 </Grid>
