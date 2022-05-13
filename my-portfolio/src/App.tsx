@@ -1,5 +1,5 @@
 import Home from "./pages/home";
-import About from "./pages/about";
+// import About from "./pages/about";
 import { Grid } from "@material-ui/core";
 import Sparkles from "./images/sparkles4.gif";
 import { BrowserRouter, Switch, Route, NavLink } from "react-router-dom";
