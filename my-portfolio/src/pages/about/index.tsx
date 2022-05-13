@@ -1,6 +1,5 @@
-import React from "react";
-import { Grid } from "@material-ui/core";
 import styled from "@emotion/styled";
+import { Grid } from "@material-ui/core";
 
 function About() {
     const Card = styled((props: any) => (
@@ -26,7 +25,7 @@ function About() {
                     <h3 style={{ textAlign: 'center' }}>
                         Sarah Varghese is a software engineer, with 3+ years in the telcom industry. She has specialized in frontend development & UI design.
                         <br />
-                        She's looking to expand both her UI development and designing capabilities
+                        She's looking to expand both her UI development and designing capabilities.
                     </h3>
                     <h3 style={{ textAlign: 'center' }}>
                         Get in touch:
